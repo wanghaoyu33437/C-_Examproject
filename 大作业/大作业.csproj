@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13CDC450-06C8-435F-B43E-18027AB1D750}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>大作业</RootNamespace>
+    <AssemblyName>大作业</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Login_stra.cs" />
+    <Compile Include="MainWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWin.Designer.cs">
+      <DependentUpon>MainWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sql\ConnectionPool.cs" />
+    <Compile Include="Sql\SFact.cs" />
+    <Compile Include="Sql\Select.cs" />
+    <Compile Include="Sp\InpSp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sp\InpSp.Designer.cs">
+      <DependentUpon>InpSp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sp\SelSp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sp\SelSp.Designer.cs">
+      <DependentUpon>SelSp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sp\OutSp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sp\OutSp.Designer.cs">
+      <DependentUpon>OutSp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sql\SpDao.cs" />
+    <Compile Include="Sql\VipDao.cs" />
+    <Compile Include="Staff\AddSta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\AddSta.Designer.cs">
+      <DependentUpon>AddSta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\SelSta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\SelSta.Designer.cs">
+      <DependentUpon>SelSta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\UpdSta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\UpdSta.Designer.cs">
+      <DependentUpon>UpdSta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vip\UpdVip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vip\UpdVip.Designer.cs">
+      <DependentUpon>UpdVip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vip\SelVip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vip\SelVip.Designer.cs">
+      <DependentUpon>SelVip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vip\AddVip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vip\AddVip.Designer.cs">
+      <DependentUpon>AddVip.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWin.resx">
+      <DependentUpon>MainWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sp\InpSp.resx">
+      <DependentUpon>InpSp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sp\SelSp.resx">
+      <DependentUpon>SelSp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sp\OutSp.resx">
+      <DependentUpon>OutSp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\AddSta.resx">
+      <DependentUpon>AddSta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\SelSta.resx">
+      <DependentUpon>SelSta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\UpdSta.resx">
+      <DependentUpon>UpdSta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vip\UpdVip.resx">
+      <DependentUpon>UpdVip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vip\SelVip.resx">
+      <DependentUpon>SelVip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vip\AddVip.resx">
+      <DependentUpon>AddVip.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="图片\back.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
