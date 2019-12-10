@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50562
 File Encoding         : 65001
 
-Date: 2019-12-09 18:38:19
+Date: 2019-12-10 17:28:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -52,12 +52,28 @@ CREATE TABLE `staff` (
 -- ----------------------------
 -- Records of staff
 -- ----------------------------
-INSERT INTO `staff` VALUES ('1', 'why', '123', '1778990', '男', '18', '1', '2017年9月');
-INSERT INTO `staff` VALUES ('2', 'why', '123', 'aaa', '男', '18', '1', '2017年9月');
-INSERT INTO `staff` VALUES ('3', 'aaa', '123', 'aaa', '男', '18', '1', '2017');
-INSERT INTO `staff` VALUES ('4', 'aa', null, null, null, null, null, null);
-INSERT INTO `staff` VALUES ('5', 'aaa', '123', 'aaa', '男', '18', '1', '2017');
-INSERT INTO `staff` VALUES ('6', 'aa', 'sdas', 'aaa', 'asd', '12', '1', '123');
+INSERT INTO `staff` VALUES ('1', 'why', '1234', '1778990', '男', '18', '1', '2017年9月');
+INSERT INTO `staff` VALUES ('4', 'aa', '123', '1122', '男', '19', '1', '2017年9月');
+
+-- ----------------------------
+-- Table structure for system
+-- ----------------------------
+DROP TABLE IF EXISTS `system`;
+CREATE TABLE `system` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sys_name` varchar(30) DEFAULT NULL,
+  `sys_pwd` varchar(30) DEFAULT NULL,
+  `sys_num` varchar(255) DEFAULT NULL,
+  `sta_sex` varchar(255) DEFAULT NULL,
+  `sta_age` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of system
+-- ----------------------------
+INSERT INTO `system` VALUES ('1', 'why', '123', '1778990', '男', '18');
+INSERT INTO `system` VALUES ('2', 'why', '123', 'aaa', '男', '18');
 
 -- ----------------------------
 -- Table structure for vip
@@ -65,13 +81,18 @@ INSERT INTO `staff` VALUES ('6', 'aa', 'sdas', 'aaa', 'asd', '12', '1', '123');
 DROP TABLE IF EXISTS `vip`;
 CREATE TABLE `vip` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sys_name` varchar(255) DEFAULT NULL,
-  `sys_num` varchar(255) DEFAULT NULL,
-  `sys_pwd` varchar(255) DEFAULT NULL,
+  `vip_num` varchar(255) DEFAULT NULL,
+  `vip_name` varchar(255) DEFAULT NULL,
+  `vip_sex` varchar(255) DEFAULT NULL,
+  `vip_age` varchar(255) DEFAULT NULL,
+  `vip_money` varchar(255) DEFAULT NULL,
+  `vip_pwd` varchar(255) DEFAULT NULL,
+  `vip_phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vip
 -- ----------------------------
-INSERT INTO `vip` VALUES ('1', '罗贤哲', '578111', '123');
+INSERT INTO `vip` VALUES ('1', '578111', '罗贤哲', '男', '13', '700', '123', '17370837789');
+INSERT INTO `vip` VALUES ('3', '0925923950', '弟弟', '男', '19', '1000', '123', '11223344556');
