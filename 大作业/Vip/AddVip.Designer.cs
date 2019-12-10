@@ -53,7 +53,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(314, 487);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 31);
             this.button1.TabIndex = 51;
@@ -64,7 +64,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(291, 289);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(201, 25);
             this.textBox4.TabIndex = 49;
@@ -73,7 +73,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(291, 243);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(201, 25);
             this.textBox3.TabIndex = 48;
@@ -81,8 +81,8 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(291, 152);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Location = new System.Drawing.Point(291, 195);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(201, 25);
             this.textBox2.TabIndex = 47;
@@ -90,8 +90,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(291, 195);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(291, 152);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(201, 25);
             this.textBox1.TabIndex = 46;
@@ -100,7 +100,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(291, 415);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(201, 25);
             this.textBox7.TabIndex = 44;
@@ -109,7 +109,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(291, 375);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(201, 25);
             this.textBox6.TabIndex = 43;
@@ -118,7 +118,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(291, 333);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(201, 25);
             this.textBox5.TabIndex = 42;
@@ -146,7 +146,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(168, 147);
+            this.label9.Location = new System.Drawing.Point(168, 190);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 30);
@@ -166,13 +166,14 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(168, 190);
+            this.label8.Location = new System.Drawing.Point(168, 147);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 30);
             this.label8.TabIndex = 36;
-            this.label8.Text = "会员ID";
+            this.label8.Text = "会员号";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label6
             // 
@@ -229,12 +230,13 @@
             this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button4.Location = new System.Drawing.Point(864, 26);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 50);
             this.button4.TabIndex = 55;
-            this.button4.Text = "退出";
+            this.button4.Text = "返回";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label12
             // 
@@ -289,7 +291,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddVip";
             this.Text = "添加会员";
             this.Load += new System.EventHandler(this.AddVip_Load);

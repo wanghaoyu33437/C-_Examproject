@@ -14,6 +14,7 @@ namespace 大作业
     public partial class UpdVip : Form
     {
         string id=null;
+        string num = null;
         string str;
         public static UpdVip  f = null;
         public static UpdVip GetForm(Form f1, string str)
@@ -40,22 +41,24 @@ namespace 大作业
 
         private void button1_Click(object sender, EventArgs e)
         {
-            id = textBox1.Text;
+            num = textBox1.Text;
             SFact sFact = new SFact();
             SOperate s = sFact.Select();
-            DataSet d = s._Select("*","vip","vip_id",textBox1.Text);
+            DataSet d = s._Select("*","vip","vip_num",textBox1.Text);
             if (d.Tables[0].Rows.Count==0&&d.Tables.Count==1)//判断是否有数据
             {
                 MessageBox.Show("该会员号不存在");
+                ClearInfo();
             }
             else
             {
-                textBox2.Text = d.Tables[0].Rows[0][1].ToString();
-                textBox3.Text = d.Tables[0].Rows[0][2].ToString();
-                textBox4.Text = d.Tables[0].Rows[0][3].ToString();
-                textBox5.Text = d.Tables[0].Rows[0][4].ToString();
-                textBox6.Text = d.Tables[0].Rows[0][5].ToString();
-                textBox7.Text = d.Tables[0].Rows[0][6].ToString();
+                id = d.Tables[0].Rows[0][0].ToString();
+                textBox2.Text = d.Tables[0].Rows[0][2].ToString();
+                textBox3.Text = d.Tables[0].Rows[0][3].ToString();
+                textBox4.Text = d.Tables[0].Rows[0][4].ToString();
+                textBox5.Text = d.Tables[0].Rows[0][5].ToString();
+                textBox6.Text = d.Tables[0].Rows[0][6].ToString();
+                textBox7.Text = d.Tables[0].Rows[0][7].ToString();
             }
             
         }
@@ -64,17 +67,29 @@ namespace 大作业
         {
 
         }
-
+        private void ClearInfo()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+        }
         private void button2_Click(object sender, EventArgs e)
         {
-            if (id == textBox1.Text)
+            if (num == textBox1.Text)
             {
                 SFact sFact = new SFact();
-                SOperate s = sFact.Delete();
-                s._Del("vip", "vip_id", textBox1.Text);
-                SOperate s1 = sFact.Add();
-                s1._Add("vip", textBox1.Text, textBox2.Text, textBox3.Text,
-                    textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+                string name = textBox2.Text;
+                string sex = textBox3.Text;
+                string age = textBox4.Text;
+                string money = textBox5.Text;
+                string pwd = textBox6.Text;
+                string phone = textBox7.Text;
+                SOperate s = sFact.Update();
+                s._Update("vip", "vip_name = '" + name + "',vip_sex= '" + sex + "',vip_age=" + age + ",vip_money= '" + money + "',vip_pwd='" + pwd + "',vip_phone='" + phone+ "'", "id", id);
+
             }
             else {
                 MessageBox.Show("会员号不可更改");
@@ -85,7 +100,8 @@ namespace 大作业
         {
             SFact sFact = new SFact();
             SOperate s = sFact.Delete();
-            s._Del("vip", "vip_id", textBox1.Text);
+            s._Del("vip", "id",id);
+            ClearInfo();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -100,6 +116,17 @@ namespace 大作业
 
         private void label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
 
         }
     }

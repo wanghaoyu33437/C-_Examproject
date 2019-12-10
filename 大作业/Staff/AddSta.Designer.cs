@@ -399,8 +399,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 50);
             this.button2.TabIndex = 75;
-            this.button2.Text = "退出";
+            this.button2.Text = "返回";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -443,7 +444,7 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddSta";
-            this.Text = "AddSta";
+            this.Text = "添加员工";
             this.Load += new System.EventHandler(this.AddSta_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

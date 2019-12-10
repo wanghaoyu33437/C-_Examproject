@@ -13,7 +13,10 @@ namespace 大作业.Staff
     public partial class UpdSta : Form
     {
         string str;
+        //记录员工id
         string id = null;
+        //记录员工账号
+        string num = null;
         public static UpdSta f = null;
         public static UpdSta GetForm(Form f1, string str)
         {
@@ -23,6 +26,15 @@ namespace 大作业.Staff
             }
 
             return f;
+        }
+        private void ClearInfo()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
         }
         public UpdSta(Form f, string str)
         {
@@ -37,22 +49,24 @@ namespace 大作业.Staff
 
         private void button4_Click(object sender, EventArgs e)
         {
-            id = textBox1.Text;
+            num = textBox1.Text;
             SFact sFact = new SFact();
             SOperate s = sFact.Select();
-            DataSet d = s._Select("*", "staff", "sta_id", textBox1.Text);
+            DataSet d = s._Select("*", "staff", "sta_num", textBox1.Text);
             if (d.Tables[0].Rows.Count == 0 && d.Tables.Count == 1)//判断是否有数据
             {
                 MessageBox.Show("该职工号不存在");
+                ClearInfo();
             }
             else
             {
-                textBox2.Text = d.Tables[0].Rows[0][1].ToString();
-                textBox3.Text = d.Tables[0].Rows[0][2].ToString();
-                textBox4.Text = d.Tables[0].Rows[0][3].ToString();
+                id= d.Tables[0].Rows[0][0].ToString();
+                textBox2.Text = d.Tables[0].Rows[0][6].ToString();
+                textBox3.Text = d.Tables[0].Rows[0][1].ToString();
+                textBox4.Text = d.Tables[0].Rows[0][5].ToString();
                 textBox5.Text = d.Tables[0].Rows[0][4].ToString();
-                textBox6.Text = d.Tables[0].Rows[0][5].ToString();
-                textBox7.Text = d.Tables[0].Rows[0][6].ToString();
+                textBox6.Text = d.Tables[0].Rows[0][7].ToString();
+                textBox7.Text = d.Tables[0].Rows[0][2].ToString();
             }
         }
 
@@ -78,14 +92,17 @@ namespace 大作业.Staff
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (id == textBox1.Text)
+            if (num == textBox1.Text)
             {
                 SFact sFact = new SFact();
-                SOperate s = sFact.Delete();
-                s._Del("staff", "sta_id", textBox1.Text);
-                SOperate s1 = sFact.Add();
-                s1._Add("staff", textBox1.Text, textBox2.Text, textBox3.Text,
-                    textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+                SOperate s = sFact.Update();
+                string pos_id = textBox2.Text;
+                string sta_name = textBox3.Text;
+                string sta_age = textBox4.Text;
+                string sta_sex = textBox5.Text;
+                string sta_startime = textBox6.Text;
+                string sta_pwd = textBox7.Text;
+                s._Update("staff","pos_id = "+pos_id +",sta_name= '"+sta_name+"',sta_age="+sta_age+",sta_sex= '"+sta_sex+"',sta_startime='"+sta_startime+"',sta_pwd='"+sta_pwd+"'" , "id", id);
             }
             else
             {
@@ -107,7 +124,23 @@ namespace 大作业.Staff
         {
             SFact sFact = new SFact();
             SOperate s = sFact.Delete();
-            s._Del("staff", "sta_id", textBox1.Text);
+            s._Del("staff", "id", id);
+            ClearInfo();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdSta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

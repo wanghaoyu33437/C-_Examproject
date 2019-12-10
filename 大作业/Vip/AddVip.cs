@@ -30,11 +30,31 @@ namespace 大作业
             InitializeComponent();
             this.str = str;
             label3.Text = str;
+            string chars = "0123456789";
+
+            Random randrom = new Random((int)DateTime.Now.Ticks);
+
+            string str1 = "";
+            for (int i = 0; i < 10; i++)
+            {
+                str += chars[randrom.Next(chars.Length)];
+            }
+            textBox1.Text = str1;
 
         }
         public AddVip()
         {
             InitializeComponent();
+            string chars = "0123456789";
+
+            Random randrom = new Random((int)DateTime.Now.Ticks);
+
+            string str1 = "";
+            for (int i = 0; i < 10; i++)
+            {
+                str1 += chars[randrom.Next(chars.Length)];
+            }
+            textBox1.Text = str1;
         }
 
         private void AddVip_Load(object sender, EventArgs e)
@@ -80,21 +100,44 @@ namespace 大作业
         private void button1_Click(object sender, EventArgs e)
         {
             SFact sFact = new SFact();
-            SOperate s = sFact.Add();
-            s._Add("vip",textBox1.Text, textBox2.Text, textBox3.Text,
-                textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
-            textBox7.Text = "";
+            SOperate s1 = sFact.Select();
+
+            if (s1._Select("*", "vip", "vip_num", textBox1.Text).Tables[0].Rows.Count == 0)
+            {
+                if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox5.Text != "" && textBox6.Text != "" &&
+                textBox7.Text != "")
+                {
+                    SOperate s = sFact.Add();
+                    s._Add("vip(vip_num,vip_name,vip_sex,vip_age,vip_money,vip_pwd,vip_phone)", "'" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" +
+                        textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "','" + textBox7.Text + "' ");
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    textBox5.Text = "";
+                    textBox6.Text = "";
+                    textBox7.Text = "";
+                }
+                else
+                    MessageBox.Show("存在输入信息为空。！");
+            }
+            else
+                MessageBox.Show("该员工账号已存在！");
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

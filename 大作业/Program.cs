@@ -17,7 +17,7 @@ namespace 大作业
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddSta());
+            Application.Run(new Login());
         }
     }
 }

@@ -33,6 +33,7 @@ namespace 大作业.Staff
         public SelSta()
         {
             InitializeComponent();
+            ShowInfo();
         }
         public void ShowInfo()
         {
@@ -91,7 +92,7 @@ namespace 大作业.Staff
             }
             else if (comboBox1.Text.Equals("入职时间"))
             {
-                ds = s._Select("*", "staff", "sta_data", textBox1.Text);
+                ds = s._Select("*", "staff", "sta_startime", textBox1.Text);
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }
         }
@@ -104,6 +105,11 @@ namespace 大作业.Staff
         private void SelSta_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
