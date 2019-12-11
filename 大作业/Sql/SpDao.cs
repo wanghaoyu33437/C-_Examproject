@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +11,13 @@ namespace 大作业
 {
     class SpDao 
     {
-        string strCon = "Data Source=(local);database=market;uid=sa;pwd=Zhang980430;";
+        string strCon = "server = 127.0.0.1; port = 3306 ;user = root; password = 123456; database = market";
        /* public void select(DataGridView dataGridView)
         {
-            SqlConnection con = new SqlConnection(strCon);
+            MySqlConnection con = new MySqlConnection(strCon);
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from sp", con);// where date= '" + str + "'", con);
-            SqlDataAdapter da = new SqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand("select * from sp", con);// where date= '" + str + "'", con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -28,10 +28,10 @@ namespace 大作业
         /*
         public void select_cate_good(ComboBox comboBox)
         {
-            SqlConnection con = new SqlConnection(strCon);
+            MySqlConnection con = new MySqlConnection(strCon);
             con.Open();
-            SqlCommand cmd = new SqlCommand("select cate_name from cate_good ", con);// where date= '" + str + "'", con);
-            SqlDataAdapter da = new SqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand("select cate_name from cate_good ", con);// where date= '" + str + "'", con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -46,10 +46,10 @@ namespace 大作业
         */
         public void select_com_name(ComboBox comboBox)
         {
-            SqlConnection con = new SqlConnection(strCon);
+            MySqlConnection con = new MySqlConnection(strCon);
             con.Open();
-            SqlCommand cmd = new SqlCommand("select com_name from sp ", con);// where date= '" + str + "'", con);
-            SqlDataAdapter da = new SqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand("select com_name from sp ", con);// where date= '" + str + "'", con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -63,10 +63,10 @@ namespace 大作业
         }
         public string select_cate_id(string str)
         {
-            SqlConnection con = new SqlConnection(strCon);
+            MySqlConnection con = new MySqlConnection(strCon);
             con.Open();
-            SqlCommand cmd = new SqlCommand("select cate_id from cate_good where cate_name= '" + str + "'", con);
-            SqlDataAdapter da = new SqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand("select cate_id from cate_good where cate_name= '" + str + "'", con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -75,10 +75,10 @@ namespace 大作业
         }
         public string select_com_num(string str)
         {
-            SqlConnection con = new SqlConnection(strCon);
+            MySqlConnection con = new MySqlConnection(strCon);
             con.Open();
-            SqlCommand cmd = new SqlCommand("select com_num from sp where com_id= '" + str + "'", con);
-            SqlDataAdapter da = new SqlDataAdapter();
+            MySqlCommand cmd = new MySqlCommand("select com_num from sp where com_id= '" + str + "'", con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -88,14 +88,14 @@ namespace 大作业
         public void insert(string str1,string str2,string str3,string str4,string str5,string str6,
                             string str7,string str8,string str9,string str10)
         {
-            SqlConnection conn = new SqlConnection(strCon);
+            MySqlConnection conn = new MySqlConnection(strCon);
             conn.Open();
             string str11;
-            str11 = select_cate_id(str2);
-            string sql = "insert into sp values('" + str1 + "','"+ str11 +"','" + str3 + "','" + str4 + "'" +
+            //str11 = select_cate_id(str2);
+            string MySql = "insert into good(good_typeId,good_num,good_name,good_sum,good_insale,good_outsale,good_vipsale,good_start,good_end,good_producter) values('" + str1 + "','"+ str2 +"','" + str3 + "','" + str4 + "'" +
                 ",'" + str5 + "','" + str6 + "','" + str7 + "','" + str8 + "','" + str9 + "','" + str10 + "')";
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = sql;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = MySql;
             cmd.Connection = conn;
             cmd.ExecuteNonQuery();
             MessageBox.Show("成功");
@@ -107,12 +107,12 @@ namespace 大作业
             num = int.Parse(select_com_num(com_name));
             if (num > com_num)
             {
-                SqlConnection conn = new SqlConnection(strCon);
+                MySqlConnection conn = new MySqlConnection(strCon);
                 num = num - com_num;
                 conn.Open();
-                string sql = "update sp set com_num ='" + num.ToString() + "'where com_id='" + com_name + "'";
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = sql;
+                string MySql = "update sp set com_num ='" + num.ToString() + "'where com_id='" + com_name + "'";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = MySql;
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("成功");
@@ -120,12 +120,12 @@ namespace 大作业
             }
             else if(num==com_num)
             {
-                SqlConnection conn = new SqlConnection(strCon);
+                MySqlConnection conn = new MySqlConnection(strCon);
                 num = num - com_num;
                 conn.Open();
-                string sql = "delete from sp where com_name='" + com_name + "'";
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = sql;
+                string MySql = "delete from sp where com_name='" + com_name + "'";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = MySql;
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("成功");

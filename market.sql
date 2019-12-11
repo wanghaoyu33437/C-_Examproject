@@ -10,10 +10,57 @@ Target Server Type    : MYSQL
 Target Server Version : 50562
 File Encoding         : 65001
 
-Date: 2019-12-10 17:28:38
+Date: 2019-12-12 01:11:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for good
+-- ----------------------------
+DROP TABLE IF EXISTS `good`;
+CREATE TABLE `good` (
+  `good_id` int(11) NOT NULL AUTO_INCREMENT,
+  `good_typeid` varchar(255) DEFAULT NULL,
+  `good_num` varchar(255) DEFAULT NULL,
+  `good_name` varchar(255) DEFAULT NULL,
+  `good_sum` varchar(255) DEFAULT NULL,
+  `good_insale` varchar(255) DEFAULT NULL,
+  `good_outsale` varchar(255) DEFAULT NULL,
+  `good_vipsale` varchar(255) DEFAULT NULL,
+  `good_start` varchar(255) DEFAULT NULL,
+  `good_end` varchar(255) DEFAULT NULL,
+  `good_producter` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`good_id`),
+  KEY `good_type` (`good_typeid`),
+  CONSTRAINT `good_type` FOREIGN KEY (`good_typeId`) REFERENCES `goodtype` (`goodType_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of good
+-- ----------------------------
+INSERT INTO `good` VALUES ('3', '2', null, null, null, null, null, null, null, null, null);
+INSERT INTO `good` VALUES ('4', '1', null, null, null, null, null, null, null, null, null);
+INSERT INTO `good` VALUES ('5', '3', '11', '12321', '213', '4323', '234', '324', '213', '324', '递四方速递');
+
+-- ----------------------------
+-- Table structure for goodtype
+-- ----------------------------
+DROP TABLE IF EXISTS `goodtype`;
+CREATE TABLE `goodtype` (
+  `goodType_id` varchar(11) NOT NULL,
+  `goodType_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`goodType_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of goodtype
+-- ----------------------------
+INSERT INTO `goodtype` VALUES ('1', '奶类');
+INSERT INTO `goodtype` VALUES ('2', '饮料类');
+INSERT INTO `goodtype` VALUES ('3', '肉类');
+INSERT INTO `goodtype` VALUES ('4', '家居用品');
+INSERT INTO `goodtype` VALUES ('5', '酒品类');
 
 -- ----------------------------
 -- Table structure for position
@@ -47,7 +94,7 @@ CREATE TABLE `staff` (
   PRIMARY KEY (`id`),
   KEY `sta_pos` (`pos_id`),
   CONSTRAINT `sta_pos` FOREIGN KEY (`pos_id`) REFERENCES `position` (`pos_id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of staff
@@ -89,7 +136,7 @@ CREATE TABLE `vip` (
   `vip_pwd` varchar(255) DEFAULT NULL,
   `vip_phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vip

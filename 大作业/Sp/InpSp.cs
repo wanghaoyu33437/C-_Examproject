@@ -26,7 +26,17 @@ namespace 大作业
         public InpSp()
         {
             InitializeComponent();
-           
+            DataSet ds = new DataSet();
+            SFact sFact = new SFact();
+            SOperate s = sFact.Select();
+            ds = s._Select("goodType_name", "goodtype");
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                comboBox1.Items.Add(ds.Tables[0].Rows[i][0].ToString().Trim());
+            }
+            comboBox1.DisplayMember = "shang";
+            comboBox1.ValueMember = "id";
+
         }
         public InpSp(Form f, string str)
         {
@@ -36,7 +46,7 @@ namespace 大作业
             DataSet ds = new DataSet();
             SFact sFact = new SFact();
             SOperate s = sFact.Select();
-            ds=s._Select("cate_name","cate_good");
+            ds=s._Select("goodType_name","goodtype");
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 comboBox1.Items.Add(ds.Tables[0].Rows[i][0].ToString().Trim());
@@ -89,7 +99,8 @@ namespace 大作业
         private void button1_Click(object sender, EventArgs e)
         {
             SpDao s = new SpDao();
-            s.insert(textBox1.Text,comboBox1.Text,textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text,textBox6.Text,
+            //MessageBox.Show((comboBox1.SelectedIndex + 1).ToString());
+            s.insert((comboBox1.SelectedIndex+1).ToString(), textBox1.Text, textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text,textBox6.Text,
                 textBox7.Text,textBox8.Text,textBox9.Text);
             textBox1.Text = "";
             textBox2.Text = "";
