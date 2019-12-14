@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace 大作业.Staff
 {
-    public partial class UpdSta : Form
+    public partial class UpdSta : MetroFramework.Forms.MetroForm
     {
         string str;
         //记录员工id

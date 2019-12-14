@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace 大作业
 {
-    public partial class InpSp : Form
+    public partial class InpSp : MetroFramework.Forms.MetroForm
     {
         string str;
         public static InpSp f = null;
@@ -127,6 +127,11 @@ namespace 大作业
         private void label14_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+ 
 namespace 大作业
 {
     
-    public partial class OutSp : Form
+    public partial class OutSp : MetroFramework.Forms.MetroForm
     {
         
         public static OutSp f = null;
@@ -40,8 +40,8 @@ namespace 大作业
             DataSet ds1 = new DataSet();
             SFact sFact = new SFact();
             SOperate s = sFact.Select();
-            ds = s._Select("sp");
-            ds1 = s._Select("cate_id","cate_good");
+            ds = s._Select("good");
+            ds1 = s._Select("good_id","good");
             dataGridView1.DataSource = ds.Tables[0].DefaultView;
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
@@ -62,7 +62,7 @@ namespace 大作业
             SOperate s = sFact.Select();
             SOperate s1 = sFact.Update();
             SOperate s2 = sFact.Delete();
-            int num = int.Parse(s._Select("com_num", "sp", "com_id", comboBox1.Text).Tables[0].Rows[0][0].ToString().Trim());
+            int num = int.Parse(s._Select("good_sum", "good", "good_id", comboBox1.Text).Tables[0].Rows[0][0].ToString().Trim());
             if (num < int.Parse(textBox1.Text))
             {
                 MessageBox.Show("数量不足！");
@@ -70,12 +70,12 @@ namespace 大作业
             else if (num == int.Parse(textBox1.Text))
             {
                 num = num - int.Parse(textBox1.Text);
-                s2._Del("sp", "com_id",comboBox1.Text);
+                s2._Del("good", "good_id",comboBox1.Text);
             }
             else
             {
                 num = num - int.Parse(textBox1.Text);
-                s1._Update("sp","com_num", num.ToString(), "com_id",comboBox1.Text);
+                s1._Update("good","good_sum", num.ToString(), "good_id",comboBox1.Text);
             }
         }
 
@@ -92,6 +92,11 @@ namespace 大作业
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

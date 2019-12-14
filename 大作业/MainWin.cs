@@ -12,7 +12,7 @@ using 大作业.Staff;
 
 namespace 大作业
 {
-    public partial class MainWin : Form
+    public partial class MainWin : MetroFramework.Forms.MetroForm
     {
         Form f;
         string str;

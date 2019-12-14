@@ -11,7 +11,7 @@ namespace 大作业.Sql
 {
     class VipDao
     {
-        string strCon = "Data Source=(local);database=market;uid=sa;pwd=Zhang980430;";
+        string strCon = "Data Source=(local);database=market;uid=sa;pwd=Zhang980430;"; 
         public void insert(string str1, string str2, string str3, string str4, string str5, string str6,
                          string str7)
         {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace 大作业.Staff
 {
-    public partial class SelSta : Form
+    public partial class SelSta : MetroFramework.Forms.MetroForm
     {
         string str;
         public static SelSta f = null;
@@ -62,12 +62,12 @@ namespace 大作业.Staff
             DataSet ds = new DataSet();
             if (comboBox1.Text.Equals("All"))
             {
-                ds=s._Select("*", "staff");
+                ds=s._Select("id,sta_num as 账号,sta_name as 姓名,sta_age as 年龄,sta_sex as  性别,pos_name as 职位,sta_startime as 入职时间", "staff,position where staff.pos_id= position.pos_id");
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }
             else if (comboBox1.Text.Equals("员工号"))
             {
-                ds=s._Select("*","staff","sta_id",textBox1.Text);
+                ds=s._Select("","staff","sta_id",textBox1.Text);
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }
             else if (comboBox1.Text.Equals("职位"))

@@ -11,7 +11,7 @@ using 大作业.Sql;
 
 namespace 大作业
 {
-    public partial class AddVip : Form
+    public partial class AddVip : MetroFramework.Forms.MetroForm
     {
         string str;
         public static AddVip f = null;

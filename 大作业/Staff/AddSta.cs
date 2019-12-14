@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace 大作业.Staff
 {
-    public partial class AddSta : Form
+    public partial class AddSta : MetroFramework.Forms.MetroForm
     {
         string str;
         public static AddSta f = null;
@@ -41,7 +41,8 @@ namespace 大作业.Staff
             DataSet ds1 = new DataSet();
             SFact sFact = new SFact();
             SOperate s = sFact.Select();
-            ds = s._Select("id,sta_num as 账号,sta_name as 姓名,sta_age as 年龄,sta_sex as  性别,pos_name as 职位,sta_startime as 入职时间", "staff,position where staff.pos_id= position.pos_id "); //查询全部工人信息
+            ds = s._Select("id,sta_num as 账号,sta_name as 姓名,sta_age as 年龄,sta_sex as  性别,pos_name as 职位,sta_startime as 入职时间",
+                "staff,position where staff.pos_id= position.pos_id "); //查询全部工人信息
             ds1 = s._Select("pos_id", "position");
             dataGridView2.DataSource = ds.Tables[0].DefaultView;
             for (int i = 0; i < ds1.Tables[0].Rows.Count; i++)
@@ -106,7 +107,8 @@ namespace 大作业.Staff
                 textBox7.Text != "")
                 {
                     SOperate s = sFact.Add();
-                    s._Add("staff(sta_name,sta_pwd,sta_num,sta_sex,sta_age,pos_id,sta_startime)", textBox2.Text, textBox7.Text, textBox1.Text, textBox5.Text, textBox3.Text, comboBox1.Text, textBox6.Text);
+                    s._Add("staff(sta_name,sta_pwd,sta_num,sta_sex,sta_age,pos_id,sta_startime)", 
+                        textBox2.Text, textBox7.Text, textBox1.Text, textBox5.Text, textBox3.Text, comboBox1.Text, textBox6.Text);
                     ClearInfo();
                     MessageBox.Show("添加成功");
                 }

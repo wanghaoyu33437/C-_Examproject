@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace 大作业
 {
-    public partial class SelVip : Form
+    public partial class SelVip : MetroFramework.Forms.MetroForm
     {
         string str;
         public static SelVip f = null;

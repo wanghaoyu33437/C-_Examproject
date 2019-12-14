@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace 大作业
+namespace 大作业 
 {
-    public partial class SelSp : Form
+    public partial class SelSp : MetroFramework.Forms.MetroForm
     {
         string str;
         public static SelSp f = null;
@@ -49,7 +49,7 @@ namespace 大作业
            
             SFact sFact = new SFact();
             SOperate s = sFact.Select();
-            ds = s._Select("sp");
+            ds = s._Select("good");
             
             dataGridView1.DataSource = ds.Tables[0].DefaultView;
             comboBox1.Items.Add("All");
@@ -79,24 +79,29 @@ namespace 大作业
             DataSet ds = new DataSet();
             if (comboBox1.Text.Equals("All"))
             {
-                ds = s._Select("*", "sp");
+                ds = s._Select("*", "good");
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }
             else if (comboBox1.Text.Equals("商品号"))
             {
-                ds = s._Select("*", "sp", "com_id", textBox1.Text);
+                ds = s._Select("*", "good", "good_num", textBox1.Text);
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }
             else if (comboBox1.Text.Equals("商品类别"))
             {
-                ds = s._Select("*", "sp", "cate_id", textBox1.Text);
+                ds = s._Select("*", "good", "good_typeid", textBox1.Text);
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }
             else if (comboBox1.Text.Equals("商品名"))
             {
-                ds = s._Select("*", "sp", "com_name", textBox1.Text);
+                ds = s._Select("*", "good", "good_name", textBox1.Text);
                 dataGridView1.DataSource = ds.Tables[0].DefaultView;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace 大作业
 {
-    public partial class Login : Form
+    public partial class Login : MetroFramework.Forms.MetroForm
     {
         public static Login f1 = null;
         public static Login GetForm()
