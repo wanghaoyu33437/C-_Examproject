@@ -57,7 +57,7 @@ namespace 大作业
                     SFact sFact = new SFact();
                     SOperate s1 = sFact.Select();
                     ds=s1._Select("sta_name","staff","sta_num",textBox3.Text);
-                    Form f = new MainWin(this, ds.Tables[0].Rows[0][0].ToString().Trim());
+                    Form f = new MainWin(this, ds.Tables[0].Rows[0][0].ToString().Trim(),0);
                     this.Hide();
                     f.Show();
                 }
@@ -76,7 +76,7 @@ namespace 大作业
                     SFact sFact = new SFact();
                     SOperate s1 = sFact.Select();
                     ds = s1._Select("sys_name", "system", "sys_num", textBox1.Text);
-                    Form f = new MainWin(this, ds.Tables[0].Rows[0][0].ToString().Trim());
+                    Form f = new MainWin(this, ds.Tables[0].Rows[0][0].ToString().Trim(),1);
                     this.Hide();
                     f.Show();
                 }

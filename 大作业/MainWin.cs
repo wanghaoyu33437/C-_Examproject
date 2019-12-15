@@ -17,11 +17,11 @@ namespace 大作业
         Form f;
         string str;
         public static MainWin f1 = null;
-        public static MainWin GetForm(Form form, string str)
+        public static MainWin GetForm(Form form, string str,int flag)
         {
             if (f1 == null || f1.IsDisposed)
             {
-                f1 = new MainWin(form, str);
+                f1 = new MainWin(form, str,flag);
             }
 
             return f1;
@@ -31,9 +31,12 @@ namespace 大作业
             InitializeComponent();
            
         }
-        public MainWin(Form f,string str)
+        public MainWin(Form f,string str,int flag)
         {
-            InitializeComponent();
+            if (flag == 1)// 管理员登录
+                InitializeComponent();
+            else //员工登录
+                InitializeComponent1();
             this.f = f;
             this.str = str;
             label4.Text = str;
@@ -195,6 +198,24 @@ namespace 大作业
 
         }
 
-        
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
